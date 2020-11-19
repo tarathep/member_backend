@@ -1,5 +1,4 @@
-from bottle import Bottle, run,response,request
-
+from bottle import Bottle, Route, run,response,request
 import json
 
 app = Bottle()
@@ -27,7 +26,7 @@ members=[]
 members.append(member1)
 members.append(member2)
 
-@app.route('/')
+@app.Route('/')
 def hello():
     return "Hello World!"
 
@@ -95,7 +94,5 @@ def auth():
     return json.dumps({'id':None,'name':None,'role':None})
 
 
-
-
-
-run(app, host='localhost', port=8080)
+if __name__ == '__main__':
+    run(app, host='localhost', port=8080)
